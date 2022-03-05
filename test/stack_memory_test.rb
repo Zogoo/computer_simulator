@@ -2,7 +2,7 @@ require_relative '../core/stack_memory'
 require_relative './test_helper'
 
 def stack_memory_test
-  puts 'Stack Memory test'
+  puts 'StackMemory test'
   puts '#initialize'
   stack_memory = Core::StackMemory.new(10)
   expect(stack_memory.stack_memory.is_a?(Array), 'will initialize stack memory with array')
@@ -20,4 +20,5 @@ def stack_memory_test
   stack_memory.set_address(4)
   stack_memory.insert('ANY', 2)
   expect(stack_memory.stack_memory[4][:cmd] == 'ANY', 'will store command in given address')
+  puts '-----------------'
 end

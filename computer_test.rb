@@ -1,11 +1,12 @@
 require './test/test_helper'
 require './test/stack_memory_test'
+require './test/instruction_test'
 require './computer'
 
-require 'byebug'
+# require 'byebug'
 
-PRINT_TENTEN_BEGIN = 50
 MAIN_BEGIN = 0
+PRINT_TENTEN_BEGIN = 50
 
 def main
   # Create new computer with a stack of 100 addresses
@@ -23,9 +24,15 @@ def main
   computer.set_address(MAIN_BEGIN).execute
 end
 
+# Unit test
+stack_memory_test
+
+# Instruction test
+instruction_test
+
+# Integration test from Coding challenge
 puts 'Main test, should not raise any issue'
 
 should_not_raise_any_error do
   main
 end
-
