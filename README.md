@@ -1,5 +1,6 @@
 # Computer Simulator
-build a computer simulator that supports executing:
+![Unit test](https://github.com/Zogoo/computer_simulator/actions/workflows/run-test.yml/badge.svg)
+Build a computer simulator that supports executing:
 Instructions
 - `MULT`: Pop the 2 arguments from the stack, multiply them and push the result back to the stack 
 - `CALL addr`: Set the program counter (PC) to `addr`
