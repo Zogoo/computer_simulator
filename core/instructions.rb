@@ -1,40 +1,58 @@
 require 'core/instruction_validator'
 module Core
   class Instruction
-    InstructionError = Class.new(StandardError)
-
     INSTRUCTIONS = %w[MULT CALL RET STOP PRINT PUSH].freeze
+    STOP = 'stop'.freeze
 
-    def initialize(command = { cmd: '', param: '' })
+    attr_accessor :command, :param, :data
+
+    def initialize(data = [])
+      self.data = data
+    end
+
+    def handle(command = { cmd: '', param: '' })
       InstructionValidator.validate_instruction!(INSTRUCTIONS, command[:cmd])
       InstructionValidator.validate_param!(command[:cmd], command[:param])
-    end
-
-    def 
-
-    private
-
-    def multiple(a, b)
-      a * b
-    end
-
-    def call(pointer)
-      arg_pointer = pointer
-      3.times do 
-        arg_pointer -= 1
-        raise InstructionError.new('Please set required params before use CALL instruction') unless stack[arg_pointer][:cmd] == 'PUSH'
+      case command[:cmd]
+      when 'MULT'
+        multiple
+      when 'PUSH'
+        data_push(command[:param])
+      when 'PRINT'
+        data_print
+      when 'RET'
+        return_back
+      when 'CALL'
+        call
+      when 'STOP'
+        stop
       end
     end
 
-    def return_back(pointer)
-      pointer
+    private
+
+    def multiple
+      data.push(data.pop * data.pop)
+    end
+
+    def call
+      command[:param]
+    end
+
+    def return_back
+      data.pop
     end
 
     def stop
-
+      Instruction::STOP
     end
 
-    def push
+    def data_push(param)
+      data.push(param)
+    end
+
+    def data_print
+      puts data.pop
     end
   end
 end

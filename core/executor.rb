@@ -9,8 +9,13 @@ module Core
       self.pointer = 0
     end
 
-    def execute
-      Instruction.new(stack[pointer])
+    def execute(pointer, data)
+      instruction = Instruction.new(data)
+      ret = instruction.handle(stack[pointer])
+      return if ret == Instruction::STOP
+
+      execute(stack[ret], instruction.data) if ret.is_a?(Integer)
+      self.pointer += 1
     end
   end
 end

@@ -30,4 +30,3 @@ Instructions
    It's possible to use mini test or such as gem. But those are require additional things to do. So, to make it simple as possible Ruby simple code should work fine for test.
 5. Explanation or Comments
    README is common and easiest way to explain things. Ofcourse there should be comments if code it self is not explaining itself.
-
