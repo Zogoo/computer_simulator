@@ -1,18 +1,22 @@
-require 'core/instruction_validator'
+require './core/instruction_validator'
+
 module Core
   class Instruction
+    include InstructionValidator
+
     INSTRUCTIONS = %w[MULT CALL RET STOP PRINT PUSH].freeze
     STOP = 'stop'.freeze
 
-    attr_accessor :command, :param, :data
+    attr_accessor :data
 
-    def initialize(data = [])
-      self.data = data
+    def initialize(data)
+      self.data = data || []
     end
 
     def handle(command = { cmd: '', param: '' })
-      InstructionValidator.validate_instruction!(INSTRUCTIONS, command[:cmd])
-      InstructionValidator.validate_param!(command[:cmd], command[:param])
+      validate_instruction!(INSTRUCTIONS, command[:cmd])
+      validate_param!(command[:cmd], command[:param])
+
       case command[:cmd]
       when 'MULT'
         multiple
@@ -23,7 +27,7 @@ module Core
       when 'RET'
         return_back
       when 'CALL'
-        call
+        call(command[:param])
       when 'STOP'
         stop
       end
@@ -35,8 +39,8 @@ module Core
       data.push(data.pop * data.pop)
     end
 
-    def call
-      command[:param]
+    def call(call_pointer)
+      call_pointer
     end
 
     def return_back

@@ -5,24 +5,22 @@ module Core
 
     def initialize(size)
       self.stack_memory = Array.new(size + 1)
-      self.pointer = 0
-      self.address = nil
+      @pointer = 0
+      @address = nil
     end
 
     def insert(command, param)
-      if address.present?
+      if !address.nil?
         stack_memory[address] = { cmd: command, param: param }
-        self.address += 1
+        @address += 1
       else
         stack_memory[pointer] = { cmd: command, param: param }
-        self.pointer += 1
+        @pointer += 1
       end
-      self
     end
 
     def set_address(address)
-      self.address = address
-      self
+      @address = address
     end
   end
 end
