@@ -41,3 +41,5 @@ Even do you missed lot of cases main design should be change drastically or requ
 2. Support local variables and local frame data.
 3. Add more corner test cases for allowed commands combintations. And improve logics to handle complicated cases.
 4. To use test gem like minitest, rspec
+5. Add DEBUG printing logic that allow visiblize the frame data and stack memory.
+6. Detection of endless loop

@@ -14,6 +14,7 @@ module Core
       self.data = data || []
     end
 
+    # TODO: Validate data before execute parameter
     def handle(command = { cmd: '', param: '' })
       validate_instruction!(SINGLE_INSTRUCTION + PARAM_INSTRUCTION, command[:cmd])
       validate_param!(PARAM_INSTRUCTION, command[:cmd], command[:param])

@@ -19,7 +19,6 @@ def executor_test
   executor = Core::Executor.new(stack)
   puts 'when pass valid sequence of commands'
   should_not_raise_any_error do
-    puts 'will execute those commands without error'
     executor.execute(0)
   end
   puts '-----------------'

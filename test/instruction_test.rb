@@ -17,17 +17,13 @@ def instruction_test
 
   puts '#handle validation'
   puts 'when handle uknown command'
-  begin
+  should_raise_error(ArgumentError) do
     stack_memory.handle({ cmd: 'HELP', param: 'ME' })
-  rescue => e
-    expect(e.instance_of?(ArgumentError), 'will raise ArgumentError')
   end
 
   puts 'when handle command with empty param'
-  begin
+  should_raise_error(ArgumentError) do
     stack_memory.handle({ cmd: 'CALL', param: nil })
-  rescue => e
-    expect(e.instance_of?(ArgumentError), 'will raise ArgumentError')
   end
   puts '-----------------'
 end
