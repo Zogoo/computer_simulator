@@ -18,6 +18,11 @@ Instructions
 
 
 # Challenges & Solution
+I have could see following main challenges from this "coding challenge". 
+You always can assume and imagine future usage or you wanted to add your shiny ideas, 
+But I would like to stick my solution as prototype version which able to explain my idea and
+bring visibility when we have discussion about further issues and missing point.
+Even do you missed lot of cases main design should be change drastically or requires rewrite it again.
 1. Stack memory data structure
   Since structure of instruction is not complex and complicated I could use simple array.
 2. Logic
@@ -30,3 +35,11 @@ Instructions
    It's possible to use mini test or such as gem. But those are require additional things to do. So, to make it simple as possible Ruby simple code should work fine for test.
 5. Explanation or Comments
    README is common and easiest way to explain things. Ofcourse there should be comments if code it self is not explaining itself.
+
+# TODO (Status: 70%)
+1. Validate input before execute them. That might be more effective and less use resources.
+2. Support local variables and local frame data.
+3. Add more corner test cases for allowed commands combintations. And improve logics to handle complicated cases.
+4. To use test gem like minitest, rspec
+5. Add DEBUG printing logic that allow visiblize the frame data and stack memory.
+6. Detection of endless loop
