@@ -1,6 +1,7 @@
 require './test/test_helper'
 require './test/stack_memory_test'
 require './test/instruction_test'
+require './test/executor_test'
 require './computer'
 
 # require 'byebug'
@@ -30,9 +31,16 @@ stack_memory_test
 # Instruction test
 instruction_test
 
+# Executor test
+executor_test
+
 # Integration test from Coding challenge
 puts 'Main test, should not raise any issue'
 
 should_not_raise_any_error do
   main
 end
+
+# TODO: Add more test with combinitation of allowed commands. And fix bugs & issues.
+
+# TODO: Add more corner cases like try to execute commands when there is no frame data.

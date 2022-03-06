@@ -9,11 +9,14 @@ class Computer
   end
 
   def insert(command, param = nil)
+    # TODO: Add validation stack size and commands parameters.
+    # TODO: Stack size could be dynamically increased when use wanted to add more commands.
     stack.insert(command, param)
     self
   end
 
   def set_address(address)
+    # TODO: Add validation that check address always inside of stack size.
     # FIXME: Remove duplication of address storage if execute could get address directly
     self.start_address = address
     stack.set_address(address)
