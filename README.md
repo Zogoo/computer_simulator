@@ -18,11 +18,11 @@ Instructions
 
 
 # Challenges & Solution
-I have could see following main challenges from this "coding challenge". 
-You always can assume and imagine future usage or you wanted to add your shiny ideas, 
-But I would like to stick my solution as prototype version which able to explain my idea and
-bring visibility when we have discussion about further issues and missing point.
-Even do you missed lot of cases main design should be change drastically or requires rewrite it again.
+I could see following main challenges from this "coding challenge". 
+You always can assume and imagine future usage or wanted to add your shiny ideas.
+But If it's not in requirement it might be become useless time and resources.
+For that perspective, I would like to stick my solution as prototype version which able to explain my idea and bring visibility. Top of that we have discussion about further issues and missing point of my solution.
+Even do, when you missed lot of corner cases. The main design should not require drastical changes or rewrite.
 1. Stack memory data structure
   Since structure of instruction is not complex and complicated I could use simple array.
 2. Logic
